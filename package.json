@@ -23,7 +23,7 @@
     "build": "rollup -n hyperappEnhancers -f umd -i src/index.js -o dist/enhancers.js",
     "postbuild": "terser dist/enhancers.js -o dist/enhancers.js -mc --source-map includeSources,url=enhancers.js.map",
     "version": "npm run build -s",
-    "postversion": "git push && git push --tags && npm publish"
+    "postversion": "git push && git push --tags && npm publish --access public"
   },
   "devDependencies": {
     "rollup": "^1.16.7",
