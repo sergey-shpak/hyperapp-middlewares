@@ -1,0 +1,35 @@
+{
+  "name": "@hyperapp/enhancers",
+  "version": "0.0.0",
+  "description": "Hyperapp#2 Enhancers",
+  "keywords": [
+    "hyperapp",
+    "hyperapp#2",
+    "enhancers"
+  ],
+  "repository": "sergey-shpak/hyperapp-enhancers",
+  "homepage": "https://github.com/sergey-shpak/hyperapp-enhancers",
+  "author": "Sergey Shpak",
+  "license": "MIT",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "main": "dist/enhancers.js",
+  "module": "src/index.js",
+  "scripts": {
+    "test": "exit 0",
+    "prebuild": "npm run test",
+    "build": "rollup -n hyperappEnhancers -f umd -i src/index.js -o dist/enhancers.js",
+    "postbuild": "terser dist/enhancers.js -o dist/enhancers.js -mc --source-map includeSources,url=enhancers.js.map",
+    "version": "npm run build -s",
+    "postversion": "git push && git push --tags && npm publish"
+  },
+  "devDependencies": {
+    "rollup": "^1.16.7",
+    "terser": "^4.1.2"
+  },
+  "peerDependencies": {
+    "hyperapp": "^2.0.0-beta.22"
+  }
+}
