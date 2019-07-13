@@ -9,7 +9,7 @@ export function logger(output, verbose){
     return function(action, props, obj){
       if (isFunction(action))
         output('Action', action.name, props, obj)
-      else if(isObject(action))
+      else if(isObject(action) && !isArray(action))
         output('State', action)
       else if (verbose && isArray(action)) {
         if (isFunction(action[0])) output('Tuple', action[0].name, action[1])
