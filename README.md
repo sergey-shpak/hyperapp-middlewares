@@ -12,8 +12,10 @@ npm install sergey-shpak/hyperapp-enhancers
 #### List of enhancers
 
 ##### logger
-Logs each dispatched action.
-By default it uses 'console.debug' but it takes output method as first argument (if custom logger is needed).
+Logs each dispatched action. Takes two arguments:
+- custom `output` function ('console.debug' by default)
+- and `verbose` option to log 'tuples' and 'effects'
+
 ```javascript
 import { app } from 'hyperapp'
 import { logger } from '@hyperapp/enhancers'
@@ -24,7 +26,7 @@ app({
 }, process.env.NODE_ENV === 'development' && logger())
 ```
 
-or with custom output
+or with custom output and verbose option
 ```javascript
 import { app } from 'hyperapp'
 import { logger } from '@hyperapp/enhancers'
@@ -34,7 +36,7 @@ const output = (...logs) => {}
 
 app({
   // ... app initialization settings
-}, logger(output))
+}, logger(output, true))
 ```
 
 ##### immutable
