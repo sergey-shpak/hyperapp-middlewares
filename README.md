@@ -1,15 +1,15 @@
-### Hyperapp#2 Enhancers
+### Hyperapp#2 Middlewares
 
-Hyperapp#2 provides awesome enhance mechanics based on wrapping internal dispatch function, those allows creation of custom dispatch behavior and multiple useful helpers (enhancers). This package is a set of frequently used enhancers.
+Hyperapp#2 provides awesome middleware mechanics based on wrapping internal dispatch function, those allows creation of custom dispatch behavior and multiple useful helpers (middlewares). This package is a set of frequently used middlewares.
 
 ### Install
 This package is not published to npm registry yet,
 to install use github repository path as package name
 ```bash
-npm install sergey-shpak/hyperapp-enhancers
+npm install sergey-shpak/hyperapp-middlewares
 ```
 
-#### List of enhancers
+#### List of middlewares
 
 ##### logger
 Logs each dispatched action. Takes two arguments:
@@ -18,25 +18,27 @@ Logs each dispatched action. Takes two arguments:
 
 ```javascript
 import { app } from 'hyperapp'
-import { logger } from '@hyperapp/enhancers'
+import { logger } from '@hyperapp/middlewares'
 
 app({
   // ... app initialization settings
   // log only when running in 'development' env
-}, process.env.NODE_ENV === 'development' && logger())
+  middleware: process.env.NODE_ENV === 'development' && logger()
+})
 ```
 
 or with custom output and verbose option
 ```javascript
 import { app } from 'hyperapp'
-import { logger } from '@hyperapp/enhancers'
+import { logger } from '@hyperapp/middlewares'
 
 // custom logger output
 const output = (...logs) => {}
 
 app({
   // ... app initialization settings
-}, logger(output, true))
+  middleware: logger(output, true)
+})
 ```
 
 ##### immutable
@@ -44,24 +46,26 @@ Makes state object immutable, all state mutations fails.
 (When running in 'strict mode' environment, error is thrown on any state mutation, action triggered mutation is visible through error stack trace).
 ```javascript
 import { app } from 'hyperapp'
-import { immutable } from '@hyperapp/enhancers'
+import { immutable } from '@hyperapp/middlewares'
 
 app({
   // ... app initialization settings
-}, immutable)
+  middleware: immutable
+})
 ```
 
 ##### compose
-Creates enhancers composition
+Creates middlewares composition
 ```javascript
 import { app } from 'hyperapp'
-import { logger, immutable, compose } from '@hyperapp/enhancers'
+import { logger, immutable, compose } from '@hyperapp/middlewares'
 
 app({
   // ... app initialization settings
-  // enhance(enhancer, .., enhancerN)
-}, compose(immutable, logger()))
+  // compose(middleware, .., middlewareN)
+  middleware: compose(immutable, logger()) 
+})
 ```
 
 ### License
-@hyperapp/enhancers is MIT licensed. See [LICENSE](LICENSE.md).
+@hyperapp/middlewares is MIT licensed. See [LICENSE](LICENSE.md).
