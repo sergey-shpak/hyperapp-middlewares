@@ -3,10 +3,8 @@
 Hyperapp#2 provides awesome middleware mechanics based on wrapping internal dispatch function, those allows creation of custom dispatch behavior and multiple useful helpers (middlewares). This package is a set of frequently used middlewares.
 
 ### Install
-This package is not published to npm registry yet,
-to install use github repository path as package name
 ```bash
-npm install sergey-shpak/hyperapp-middlewares
+npm install hyperapp-v2-middlewares
 ```
 
 #### List of middlewares
@@ -18,7 +16,7 @@ Logs each dispatched action. Takes two arguments:
 
 ```javascript
 import { app } from 'hyperapp'
-import { logger } from '@hyperapp/middlewares'
+import { logger } from 'hyperapp-v2-middlewares'
 
 app({
   // ... app initialization settings
@@ -30,7 +28,7 @@ app({
 or with custom output and verbose option
 ```javascript
 import { app } from 'hyperapp'
-import { logger } from '@hyperapp/middlewares'
+import { logger } from 'hyperapp-v2-middlewares'
 
 // custom logger output
 const output = (...logs) => {}
@@ -46,7 +44,7 @@ Makes state object immutable, all state mutations fails.
 (When running in 'strict mode' environment, error is thrown on any state mutation, action triggered mutation is visible through error stack trace).
 ```javascript
 import { app } from 'hyperapp'
-import { immutable } from '@hyperapp/middlewares'
+import { immutable } from 'hyperapp-v2-middlewares'
 
 app({
   // ... app initialization settings
@@ -58,7 +56,7 @@ app({
 Creates middlewares composition
 ```javascript
 import { app } from 'hyperapp'
-import { logger, immutable, compose } from '@hyperapp/middlewares'
+import { logger, immutable, compose } from 'hyperapp-v2-middlewares'
 
 app({
   // ... app initialization settings
@@ -68,4 +66,4 @@ app({
 ```
 
 ### License
-@hyperapp/middlewares is MIT licensed. See [LICENSE](LICENSE.md).
+hyperapp-v2-middlewares is MIT licensed. See [LICENSE](LICENSE.md).

@@ -1,5 +1,5 @@
 {
-  "name": "@hyperapp/middlewares",
+  "name": "hyperapp-v2-middlewares",
   "version": "0.0.5",
   "description": "Hyperapp#2 Middlewares",
   "keywords": [
