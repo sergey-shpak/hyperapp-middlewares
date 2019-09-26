@@ -11,6 +11,48 @@ npm install sergey-shpak/hyperapp-middlewares
 
 #### List of middlewares
 
+##### onState
+Triggers callback when state object has been dispatched
+```javascript
+import { app } from 'hyperapp'
+import { onState } from '@hyperapp/middlewares'
+
+app({
+  // ... app initialization
+  middleware: onState(state => console.log("State", state))
+})
+```
+
+##### onAction (onTuple)
+Triggers callback when action/tuple has been dispatched
+```javascript
+import { app } from 'hyperapp'
+import { onAction } from '@hyperapp/middlewares'
+
+app({
+  // ... app initialization
+  middleware: onAction(action => console.log("Action", action))
+})
+```
+
+##### onEffect
+Triggers callback when effect has been dispatched
+```javascript
+import { app } from 'hyperapp'
+import { onEffect } from '@hyperapp/middlewares'
+
+app({
+  // ... app initialization
+  middleware: onEffect(effect => console.log("Effect", effect))
+})
+```
+
+##### Middlewares action/props propagation
+For 'onState', 'onAction', 'onTuple' and 'onEffect' return new value from middleware callback to override propagated action, like
+```javascript
+  middleware: onState(state => ({ prop: 'new state' }))
+```
+
 ##### logger
 Logs each dispatched action. Takes two arguments:
 - custom `output` function ('console.debug' by default)
@@ -63,7 +105,7 @@ import { logger, immutable, compose } from '@hyperapp/middlewares'
 app({
   // ... app initialization settings
   // compose(middleware, .., middlewareN)
-  middleware: compose(immutable, logger()) 
+  middleware: compose(immutable, logger())
 })
 ```
 
