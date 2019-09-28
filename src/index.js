@@ -1,6 +1,6 @@
 export { logger } from './logger'
 export { immutable } from './immutable'
-export { onState, onAction, onEffect } from './dispatch'
+export { onState, onAction, onTuple, onEffect } from './dispatch'
 
 export function compose(){
   var middlewares = Array.prototype.slice.call(arguments, 0)
