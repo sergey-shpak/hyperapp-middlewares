@@ -1,5 +1,6 @@
 export { logger } from './logger'
 export { immutable } from './immutable'
+export { omitStateReturn } from './omitStateReturn'
 export { onState, onAction, onTuple, onEffect } from './dispatch'
 
 export function compose(){

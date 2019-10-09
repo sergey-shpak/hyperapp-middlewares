@@ -1,4 +1,4 @@
-import { compose, middleware } from './index'
+import { compose } from './index'
 import { onState, onAction, onTuple, onEffect } from './dispatch'
 
 export function logger(output, verbose){

@@ -63,7 +63,7 @@ import { app } from 'hyperapp'
 import { logger } from '@hyperapp/middlewares'
 
 app({
-  // ... app initialization settings
+  // ... app initialization
   // log only when running in 'development' env
   middleware: process.env.NODE_ENV === 'development' && logger()
 })
@@ -78,7 +78,7 @@ import { logger } from '@hyperapp/middlewares'
 const output = (...logs) => {}
 
 app({
-  // ... app initialization settings
+  // ... app initialization
   middleware: logger(output, true)
 })
 ```
@@ -91,8 +91,25 @@ import { app } from 'hyperapp'
 import { immutable } from '@hyperapp/middlewares'
 
 app({
-  // ... app initialization settings
+  // ... app initialization
   middleware: immutable
+})
+```
+
+##### omitStateReturn
+Omits required state return from action
+```javascript
+import { app, h } from 'hyperapp'
+import { omitStateReturn } from '@hyperapp/middlewares'
+
+// no need to return 'state' by default
+const onkeypress = (state, event) =>
+  event.key === 'Enter' && { enter: true }
+
+app({
+  // ... app initialization
+  middleware: omitStateReturn,
+  view: state => h('input', { onkeypress })
 })
 ```
 
@@ -103,7 +120,7 @@ import { app } from 'hyperapp'
 import { logger, immutable, compose } from '@hyperapp/middlewares'
 
 app({
-  // ... app initialization settings
+  // ... app initialization
   // compose(middleware, .., middlewareN)
   middleware: compose(immutable, logger())
 })
