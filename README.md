@@ -3,10 +3,9 @@
 Hyperapp#2 provides awesome middleware mechanics based on wrapping internal dispatch function, those allows creation of custom dispatch behavior and multiple useful helpers (middlewares). This package is a set of frequently used middlewares.
 
 ### Install
-This package is not published to npm registry yet,
-to install use github repository path as package name
+To install package, please run:
 ```bash
-npm install sergey-shpak/hyperapp-middlewares
+npm install hyperapp-middlewares
 ```
 
 #### List of middlewares
@@ -15,7 +14,7 @@ npm install sergey-shpak/hyperapp-middlewares
 Triggers callback when state object has been dispatched
 ```javascript
 import { app } from 'hyperapp'
-import { onState } from '@hyperapp/middlewares'
+import { onState } from 'hyperapp-middlewares'
 
 app({
   // ... app initialization
@@ -27,7 +26,7 @@ app({
 Triggers callback when action/tuple has been dispatched
 ```javascript
 import { app } from 'hyperapp'
-import { onAction } from '@hyperapp/middlewares'
+import { onAction } from 'hyperapp-middlewares'
 
 app({
   // ... app initialization
@@ -39,7 +38,7 @@ app({
 Triggers callback when effect has been dispatched
 ```javascript
 import { app } from 'hyperapp'
-import { onEffect } from '@hyperapp/middlewares'
+import { onEffect } from 'hyperapp-middlewares'
 
 app({
   // ... app initialization
@@ -60,7 +59,7 @@ Logs each dispatched action. Takes two arguments:
 
 ```javascript
 import { app } from 'hyperapp'
-import { logger } from '@hyperapp/middlewares'
+import { logger } from 'hyperapp-middlewares'
 
 app({
   // ... app initialization
@@ -72,7 +71,7 @@ app({
 or with custom output and verbose option
 ```javascript
 import { app } from 'hyperapp'
-import { logger } from '@hyperapp/middlewares'
+import { logger } from 'hyperapp-middlewares'
 
 // custom logger output
 const output = (...logs) => {}
@@ -88,7 +87,7 @@ Makes state object immutable, all state mutations fails.
 (When running in 'strict mode' environment, error is thrown on any state mutation, action triggered mutation is visible through error stack trace).
 ```javascript
 import { app } from 'hyperapp'
-import { immutable } from '@hyperapp/middlewares'
+import { immutable } from 'hyperapp-middlewares'
 
 app({
   // ... app initialization
@@ -100,7 +99,7 @@ app({
 Omits required state return from action
 ```javascript
 import { app, h } from 'hyperapp'
-import { omitStateReturn } from '@hyperapp/middlewares'
+import { omitStateReturn } from 'hyperapp-middlewares'
 
 // no need to return 'state' by default
 const onkeypress = (state, event) =>
@@ -117,7 +116,7 @@ app({
 Creates middlewares composition
 ```javascript
 import { app } from 'hyperapp'
-import { logger, immutable, compose } from '@hyperapp/middlewares'
+import { logger, immutable, compose } from 'hyperapp-middlewares'
 
 app({
   // ... app initialization
@@ -127,4 +126,4 @@ app({
 ```
 
 ### License
-@hyperapp/middlewares is MIT licensed. See [LICENSE](LICENSE.md).
+hyperapp-middlewares is MIT licensed. See [LICENSE](LICENSE.md).
