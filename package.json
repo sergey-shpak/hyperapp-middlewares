@@ -1,19 +1,11 @@
 {
-  "name": "@hyperapp/middlewares",
+  "name": "hyperapp-middlewares",
   "version": "0.0.7",
   "description": "Hyperapp#2 Middlewares",
   "keywords": [
     "hyperapp",
     "hyperapp#2",
     "middlewares"
-  ],
-  "repository": "sergey-shpak/hyperapp-middlewares",
-  "homepage": "https://github.com/sergey-shpak/hyperapp-middlewares",
-  "author": "Sergey Shpak",
-  "license": "MIT",
-  "files": [
-    "src",
-    "dist"
   ],
   "main": "dist/middlewares.js",
   "module": "src/index.js",
@@ -22,8 +14,7 @@
     "prebuild": "npm run test",
     "build": "rollup -n hyperappMiddlewares -f umd -i src/index.js -o dist/middlewares.js",
     "postbuild": "terser dist/middlewares.js -o dist/middlewares.js -mc --source-map includeSources,url=middlewares.js.map",
-    "version": "npm run build -s",
-    "postversion": "git push && git push --tags && npm publish --access public"
+    "prepublish": "npm run build -s"
   },
   "devDependencies": {
     "rollup": "^1.16.7",
@@ -31,5 +22,12 @@
   },
   "peerDependencies": {
     "hyperapp": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sergey-shpak/hyperapp-middlewares.git"
+  },
+  "homepage": "https://github.com/sergey-shpak/hyperapp-middlewares#readme",
+  "author": "Sergey Shpak",
+  "license": "Apache-2.0"
 }
