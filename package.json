@@ -1,6 +1,6 @@
 {
   "name": "hyperapp-middlewares",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Hyperapp#2 Middlewares",
   "keywords": [
     "hyperapp",
@@ -14,7 +14,7 @@
     "prebuild": "npm run test",
     "build": "rollup -n hyperappMiddlewares -f umd -i src/index.js -o dist/middlewares.js",
     "postbuild": "terser dist/middlewares.js -o dist/middlewares.js -mc --source-map includeSources,url=middlewares.js.map",
-    "prepublish": "npm run build -s"
+    "prepublish": "npm install && npm run build -s"
   },
   "devDependencies": {
     "rollup": "^1.16.7",
