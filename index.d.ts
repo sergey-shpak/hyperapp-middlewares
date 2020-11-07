@@ -7,7 +7,7 @@ export const omitStateReturn: Middleware;
 
 export function onState(cb: (state: any) => any): Middleware;
 export function onAction(cb: (action: Function) => any): Middleware;
-export function onTuple(cb: (tuple: [Function, ...any[]]) => any): Middleware;
+export function onTuple(cb: (tuple: [Function, any]) => any): Middleware;
 export function onEffect(cb: (effect: Effect) => any): Middleware;
 
 type MiddlewareOrFalsy = (Middleware | false | null | undefined);
