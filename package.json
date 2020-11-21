@@ -9,6 +9,7 @@
   ],
   "main": "dist/middlewares.js",
   "module": "src/index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "test": "exit 0",
     "prebuild": "npm run test",
