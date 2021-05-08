@@ -24,6 +24,6 @@ export function onTuple(cb){
 
 export function onEffect(cb){
   return middleware(function(action){
-    return isArray(action) && isArray(action[1]) && cb(action[1])
+    return isArray(action) && !isFunction(action[0]) && isArray(action[1]) && cb(action[1])
   })
 }
